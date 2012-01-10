@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 #Compiler Configuration
-set(CMAKE_CXX_COMPILER /opt/local/bin/g++-mp-4.7)
+#set(CMAKE_CXX_COMPILER /opt/local/bin/g++-mp-4.7)
 #set(CMAKE_CXX_FLAGS "-std=c++11")
 
 #Project Configuration
