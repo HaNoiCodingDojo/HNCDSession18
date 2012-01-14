@@ -8,6 +8,7 @@ using namespace std;
 
 string evaluate(vector<int> hand)
 {
+    sort(hand.begin(), hand.end());
     bool last_four_rolls_are_equal = hand[1] == hand[2] && hand[2] == hand[3] && hand[3] == hand[4];
     if (hand[0] == hand[1] && last_four_rolls_are_equal)
         {return "FIVE";}
