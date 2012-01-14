@@ -9,11 +9,10 @@ using namespace std;
 string evaluate(vector<int> hand)
 {
     sort(hand.begin(), hand.end());
-    vector<bool> two_consecutive_are_equal_from(4);
-    two_consecutive_are_equal_from[0] = hand[0] == hand[1];
-    two_consecutive_are_equal_from[1] = hand[1] == hand[2];
-    two_consecutive_are_equal_from[2] = hand[2] == hand[3];
-    two_consecutive_are_equal_from[3] = hand[3] == hand[4];
+    const int number_of_pairs = 4;
+    vector<bool> two_consecutive_are_equal_from(number_of_pairs);
+    for (int i = 0; i < number_of_pairs; ++i)
+        two_consecutive_are_equal_from[i] = hand[i] == hand[i+1];
     bool middle_three_rolls_are_equal = hand[1] == hand[2] && hand[2] == hand[3];
     bool first_three_rolls_are_equal = two_consecutive_are_equal_from[0] && hand[1] == hand[2];
     bool last_three_rolls_are_equal = hand[2] == hand[3] && two_consecutive_are_equal_from[3];
