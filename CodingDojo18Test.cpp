@@ -4,7 +4,9 @@
 #include <string>
 #include <vector>
 
-std::string evaluate(std::vector<int> hand)
+using namespace std;
+
+string evaluate(vector<int> hand)
 {
     if (hand[0]==hand[1] && hand[1]==hand[2] &&hand[2]==hand[3]&&hand[3]==hand[4])
         {return "FIVE";}
@@ -17,7 +19,7 @@ BOOST_AUTO_TEST_SUITE(BOOST_TEST_MODULE)
 
 BOOST_AUTO_TEST_CASE(evaluate_5_5_5_5_5_return_FIVE)
 {
-    std::vector<int> hand(5);
+    vector<int> hand(5);
     hand[0] = 5;
     hand[1] = 5;
     hand[2] = 5;
@@ -28,7 +30,7 @@ BOOST_AUTO_TEST_CASE(evaluate_5_5_5_5_5_return_FIVE)
 
 BOOST_AUTO_TEST_CASE(evaluate_1_1_5_5_5_return_FULL)
 {
-    std::vector<int> hand(5);
+    vector<int> hand(5);
     hand[0] = 1;
     hand[1] = 1;
     hand[2] = 5;
@@ -39,7 +41,7 @@ BOOST_AUTO_TEST_CASE(evaluate_1_1_5_5_5_return_FULL)
 
 BOOST_AUTO_TEST_CASE(evaluate_1_5_5_5_5_return_FOUR)
 {
-    std::vector<int> hand(5);
+    vector<int> hand(5);
     hand[0] = 1;
     hand[1] = 5;
     hand[2] = 5;
