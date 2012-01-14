@@ -20,19 +20,22 @@ string evaluate(vector<int> hand)
     else {return "";}
 }
 
+std::vector<int> mkvector(int a, int b, int c, int d, int e)
+{
+    vector<int> result(5);
+    result[0] = a;
+    result[1] = b;
+    result[2] = c;
+    result[3] = d;
+    result[4] = e;
+    return result;
+}
 BOOST_AUTO_TEST_SUITE(BOOST_TEST_MODULE)
 
 BOOST_AUTO_TEST_CASE(evaluate_5_5_5_5_5_return_FIVE)
 {
-    vector<int> hand(5);
-    hand[0] = 5; hand[1] = 5; hand[2] = 5; hand[3] = 5; hand[4] = 5;
-    BOOST_CHECK_EQUAL("FIVE", evaluate(hand));
-}
+    vector<int> hand = mkvector( 5, 5, 5, 5, 5 );
 
-BOOST_AUTO_TEST_CASE(evaluate_1_1_5_5_5_return_FULL)
-{
-    vector<int> hand(5);
-    hand[0] = 1; hand[1] = 1; hand[2] = 5; hand[3] = 5; hand[4] = 5;
     BOOST_CHECK_EQUAL("FULL", evaluate(hand));
 }
 
