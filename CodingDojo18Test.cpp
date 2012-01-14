@@ -17,7 +17,7 @@ string evaluate(vector<int> hand)
         {return "FOUR";}
     else if (first_four_rolls_are_equal)
         {return "FOUR";}
-    else {return "FULL";}
+    else {return "";}
 }
 
 BOOST_AUTO_TEST_SUITE(BOOST_TEST_MODULE)
@@ -71,8 +71,6 @@ BOOST_AUTO_TEST_CASE(evaluate_1_2_3_4_5_return_EMPTY)
     hand[0] = 1; hand[1] = 2; hand[2] = 3; hand[3] = 4; hand[4] = 5;
     BOOST_CHECK_EQUAL("", evaluate(hand));
 }
-
-
 
 
 BOOST_AUTO_TEST_SUITE_END()
