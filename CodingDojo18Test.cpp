@@ -8,9 +8,10 @@ using namespace std;
 
 string evaluate(vector<int> hand)
 {
-    if (hand[0] == hand[1] && hand[1] == hand[2] && hand[2] == hand[3] && hand[3] == hand[4])
+    bool last_four_rolls_are_equal = hand[1] == hand[2] && hand[2] == hand[3] && hand[3] == hand[4];
+    if (hand[0] == hand[1] && last_four_rolls_are_equal)
         {return "FIVE";}
-    else if (hand[0] != hand[1] && hand[1] == hand[2] && hand[2] == hand[3] && hand[3] == hand[4])
+    else if (hand[0] != hand[1] && last_four_rolls_are_equal)
         {return "FOUR";}
     else {return "FULL";}
 }
