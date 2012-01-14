@@ -20,9 +20,9 @@ string evaluate(vector<int> hand)
     else if (first_four_rolls_are_equal)
         {return "FOUR";}
     else if (first_three_rolls_are_equal)
-        {return "FULL";}
+        {return "THREE";}
     else if (last_three_rolls_are_equal)
-        {return "FULL";}
+        {return "THREE";}
     else {return "";}
 }
 
