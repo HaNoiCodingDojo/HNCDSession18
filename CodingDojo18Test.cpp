@@ -4,9 +4,11 @@
 #include <string>
 #include <vector>
 
-std::string evaluate(std::vector<int>)
+std::string evaluate(std::vector<int> hand)
 {
-    return "FIVE";
+    if (hand[0]==hand[1] && hand[1]==hand[2] &&hand[2]==hand[3]&&hand[3]==hand[4])
+        {return "FIVE";}
+    else {return "FULL";}
 }
 
 BOOST_AUTO_TEST_SUITE(BOOST_TEST_MODULE)
