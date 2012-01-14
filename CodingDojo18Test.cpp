@@ -17,14 +17,17 @@ string evaluate(vector<int> hand)
     vector<bool> three_consecutive_are_equal_from(number_of_triplets);
     for (int i = 0; i < number_of_triplets; ++i)
         three_consecutive_are_equal_from[i] = hand[i] == hand[i+1] && hand[i+1] == hand[i+2];
+    const int number_of_quads = 2;
+    vector<bool> four_consecutive_are_equal_from(number_of_quads);
+    for (int i = 0; i < number_of_quads; ++i)
+        four_consecutive_are_equal_from[i] = hand[i] == hand[i+1] && hand[i+1] == hand[i+2]
+            && hand[i + 2] == hand[i + 3] ;
 
-    bool first_four_rolls_are_equal = three_consecutive_are_equal_from[0] && hand[2] == hand[3];
-    bool last_four_rolls_are_equal = hand[1] == hand[2] && three_consecutive_are_equal_from[2];
-    if (two_consecutive_are_equal_from[0] && last_four_rolls_are_equal)
+    if (two_consecutive_are_equal_from[0] && four_consecutive_are_equal_from[1])
         {return "FIVE";}
-    else if (last_four_rolls_are_equal)
+    else if (four_consecutive_are_equal_from[0])
         {return "FOUR";}
-    else if (first_four_rolls_are_equal)
+    else if (four_consecutive_are_equal_from[1])
         {return "FOUR";}
     else if (three_consecutive_are_equal_from[0]) {
         if (two_consecutive_are_equal_from[3])
