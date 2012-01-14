@@ -11,6 +11,7 @@ string evaluate(vector<int> hand)
     sort(hand.begin(), hand.end());
     bool first_two_rolls_are_equal = hand[0] == hand[1];
     bool last_two_rolls_are_equal = hand[3] == hand[4];
+    bool middle_three_rolls_are_equal = hand[1] == hand[2] && hand[2] == hand[3];
     bool first_three_rolls_are_equal = first_two_rolls_are_equal && hand[1] == hand[2];
     bool last_three_rolls_are_equal = hand[2] == hand[3] && last_two_rolls_are_equal;
     bool first_four_rolls_are_equal = first_three_rolls_are_equal && hand[2] == hand[3];
@@ -32,6 +33,10 @@ string evaluate(vector<int> hand)
         }
         return "THREE";
     }
+    else if (middle_three_rolls_are_equal)
+        {
+            return "THREE";
+        }
     else {return "";}
 }
 
@@ -108,7 +113,6 @@ BOOST_AUTO_TEST_CASE(evaluate_1_3_3_3_5_return_THREE)
     vector<int> hand(mkvector(1, 3, 3, 3, 5));
     BOOST_CHECK_EQUAL("THREE", evaluate(hand));
 }
-
 
 BOOST_AUTO_TEST_SUITE_END()
 #undef BOOST_TEST_MODULE
