@@ -9,13 +9,13 @@ using namespace std;
 string evaluate(vector<int> hand)
 {
     sort(hand.begin(), hand.end());
-    bool first_three_rolls_are_equal = hand[0] == hand[1] && hand[1] == hand[2];
-    bool last_three_rolls_are_equal = hand[2] == hand[3] && hand[3] == hand[4];
-    bool first_four_rolls_are_equal = first_three_rolls_are_equal && hand[2] == hand[3];
-    bool last_four_rolls_are_equal = hand[1] == hand[2] && last_three_rolls_are_equal;
     bool first_two_rolls_are_equal = hand[0] == hand[1];
     bool last_two_rolls_are_equal = hand[3] == hand[4];
-    if (hand[0] == hand[1] && last_four_rolls_are_equal)
+    bool first_three_rolls_are_equal = first_two_rolls_are_equal && hand[1] == hand[2];
+    bool last_three_rolls_are_equal = hand[2] == hand[3] && last_two_rolls_are_equal;
+    bool first_four_rolls_are_equal = first_three_rolls_are_equal && hand[2] == hand[3];
+    bool last_four_rolls_are_equal = hand[1] == hand[2] && last_three_rolls_are_equal;
+    if (first_two_rolls_are_equal && last_four_rolls_are_equal)
         {return "FIVE";}
     else if (last_four_rolls_are_equal)
         {return "FOUR";}
