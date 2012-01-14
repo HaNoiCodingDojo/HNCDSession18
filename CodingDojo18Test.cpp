@@ -103,6 +103,13 @@ BOOST_AUTO_TEST_CASE(evaluate_1_2_5_5_5_return_THREE)
     BOOST_CHECK_EQUAL("THREE", evaluate(hand));
 }
 
+BOOST_AUTO_TEST_CASE(evaluate_1_3_3_3_5_return_THREE)
+{
+    vector<int> hand(mkvector(1, 3, 3, 3, 5));
+    BOOST_CHECK_EQUAL("THREE", evaluate(hand));
+}
+
+
 BOOST_AUTO_TEST_SUITE_END()
 #undef BOOST_TEST_MODULE
 
