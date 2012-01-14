@@ -13,29 +13,31 @@ string evaluate(vector<int> hand)
     vector<bool> two_consecutive_are_equal_from(number_of_pairs);
     for (int i = 0; i < number_of_pairs; ++i)
         two_consecutive_are_equal_from[i] = hand[i] == hand[i+1];
-    bool middle_three_rolls_are_equal = hand[1] == hand[2] && hand[2] == hand[3];
-    bool first_three_rolls_are_equal = two_consecutive_are_equal_from[0] && hand[1] == hand[2];
-    bool last_three_rolls_are_equal = hand[2] == hand[3] && two_consecutive_are_equal_from[3];
-    bool first_four_rolls_are_equal = first_three_rolls_are_equal && hand[2] == hand[3];
-    bool last_four_rolls_are_equal = hand[1] == hand[2] && last_three_rolls_are_equal;
+    const int number_of_triplets = 3;
+    vector<bool> three_consecutive_are_equal_from(number_of_triplets);
+    for (int i = 0; i < number_of_triplets; ++i)
+        three_consecutive_are_equal_from[i] = hand[i] == hand[i+1] && hand[i+1] == hand[i+2];
+
+    bool first_four_rolls_are_equal = three_consecutive_are_equal_from[0] && hand[2] == hand[3];
+    bool last_four_rolls_are_equal = hand[1] == hand[2] && three_consecutive_are_equal_from[2];
     if (two_consecutive_are_equal_from[0] && last_four_rolls_are_equal)
         {return "FIVE";}
     else if (last_four_rolls_are_equal)
         {return "FOUR";}
     else if (first_four_rolls_are_equal)
         {return "FOUR";}
-    else if (first_three_rolls_are_equal) {
+    else if (three_consecutive_are_equal_from[0]) {
         if (two_consecutive_are_equal_from[3])
             {return "FULL";}
         return "THREE";
     }
-    else if (last_three_rolls_are_equal) {
+    else if (three_consecutive_are_equal_from[2]) {
         if (two_consecutive_are_equal_from[0]) {
             return "FULL";
         }
         return "THREE";
     }
-    else if (middle_three_rolls_are_equal)
+    else if (three_consecutive_are_equal_from[1])
         {
             return "THREE";
         }
