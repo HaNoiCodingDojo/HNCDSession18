@@ -51,6 +51,17 @@ BOOST_AUTO_TEST_CASE(evaluate_1_5_5_5_5_return_FOUR)
     BOOST_CHECK_EQUAL("FOUR", evaluate(hand));
 }
 
+BOOST_AUTO_TEST_CASE(evaluate_5_1_5_5_5_return_FOUR)
+{
+    vector<int> hand(5);
+    hand[0] = 5;
+    hand[1] = 1;
+    hand[2] = 5;
+    hand[3] = 5;
+    hand[4] = 5;
+    BOOST_CHECK_EQUAL("FOUR", evaluate(hand));
+}
+
 BOOST_AUTO_TEST_SUITE_END()
 #undef BOOST_TEST_MODULE
 
