@@ -10,6 +10,12 @@ string evaluate(vector<int> hand)
 {
     sort(hand.begin(), hand.end());
     const int number_of_pairs = 4;
+    //    vector<bool> two_consecutive_are_equal_from(number_of_pairs);
+    vector<int> number_of_tuples(4);
+    number_of_tuples[1] = 4;
+    number_of_tuples[2] = 3;
+    number_of_tuples[3] = 2;
+    number_of_tuples[4] = 1;
     vector<bool> two_consecutive_are_equal_from(number_of_pairs);
     for (int i = 0; i < number_of_pairs; ++i)
         two_consecutive_are_equal_from[i] = hand[i] == hand[i+1];
